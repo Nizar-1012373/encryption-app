@@ -15,6 +15,11 @@ encrypt_key = Fernet(user_key)
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
 @app.route("/register")
 def register():
 
