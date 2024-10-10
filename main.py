@@ -17,9 +17,16 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/encrypt")
+@app.route("/encrypt", methods=["GET", "POST"])
 def encrypt():
-    return render_template("encrypt.html")
+    text = request.form.get("text")
+    if request.method == "POST":
+
+        print(text)
+        return render_template("encrypt.html")
+    if request.method == "GET":
+        print(text)
+        return render_template("encrypt.html")
 
 
 @app.route("/decrypt")
