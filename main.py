@@ -83,7 +83,8 @@ def check_if_user(username1, password1):
 def encrypt():
     text = request.form.get("text")
     if request.method == "POST":
-        message = encrypt_key.encrypt(text.encode("utf-8"))
+        mes = encrypt_key.encrypt(text.encode("utf-8"))
+        message = mes.decode("utf-8")
         print(message)
         return render_template("encrypt.html", message=message)
     if request.method == "GET":
