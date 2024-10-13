@@ -2,7 +2,7 @@ body {
   background-color: rgb(109, 214, 243);
 }
 
-h1 {
+h1 ,h3{
   color: rgba(231, 236, 87, 0.928);
   text-align: center;
   font-family: verdana;
@@ -46,7 +46,7 @@ button {
  
 }
 
-input[type=text], select {
+input, select {
   width: 30%;
   padding: 12px 20px;
   margin: auto;
