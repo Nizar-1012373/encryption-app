@@ -31,8 +31,9 @@ class users(db.Model):
     user_name = db.Column((db.String(100)), nullable=False)
     pass_word = db.Column((db.String(100)), nullable=False)
 
-    def __init__(self):
-
+    def __init__(self, user_name, pass_word):
+        self.user_name = user_name
+        self.pass_word = pass_word
         return f"{self.user_name},{ self.pass_word}"
 
 
