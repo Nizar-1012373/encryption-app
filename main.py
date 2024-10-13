@@ -61,18 +61,21 @@ def login():
     username = request.form.get("username")
     password = request.form.get("password")
     if request.method == "POST":
-        user = users.query.all()
+        if check_if_user(username, password):
 
-        for i in user:
-            print(i.user_name, i.pass_word)
+            return redirect("/encrypt")
 
-            if str(i.user_name) and str(i.pass_word) == username and password:
-                return redirect("/encrypt")
-
-    if request.method == "GET":
-
-        return render_template("login.html")
     return render_template("login.html")
+
+
+def check_if_user(username1, password1):
+
+    for i in db.session.query(users):
+        print(i.user_name, i.pass_word)
+        if (i.user_name, i.pass_word) == (username1, password1):
+            return True
+
+    return False
 
 
 @app.route("/encrypt", methods=["GET", "POST"])
